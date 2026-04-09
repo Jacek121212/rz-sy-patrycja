@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Dane Firmy | Patrycja Kazimierska</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+    --color-white: #ffffff;
+    --color-bg: #faf9f7;
+    --color-text: #2a2a2a;
+    --color-gold: #D4AF37;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    overflow-x: hidden;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+}
+.watermark-bg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    height: 90vh;
+    max-width: 800px;
+    background-image: url('logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.08;
+    filter: blur(4px);
+    z-index: -1;
+    pointer-events: none;
+}
+#global-glitter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+.glitter {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px 2px var(--color-gold), 0 0 20px rgba(255,255,255,0.9);
+    opacity: 0;
+    animation: sparkle 4s infinite linear;
+}
+@keyframes sparkle {
+    0% { transform: translateY(0) scale(0); opacity: 0; }
+    50% { transform: translateY(-40px) scale(1.8); opacity: 0.9; }
+    100% { transform: translateY(-80px) scale(0); opacity: 0; }
+}
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 1000;
+}
+.back-btn {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.back-btn:hover {
+    color: var(--color-gold);
+    transform: translateX(-5px);
+}
+.policy-section {
+    padding: 120px 5% 5rem 5%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+.policy-container {
+    max-width: 800px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 4rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+h1 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--color-gold);
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+h2 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-text);
+    margin: 2.5rem 0 1rem 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 5px;
+    width: 100%;
+}
+p {
+    font-size: 1.05rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+strong {
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 1.15rem;
+}
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.scroll-triggered {
+    opacity: 1;
+    transform: translateY(0);
+}
+@media (max-width: 768px) {
+    .policy-container {
+        padding: 2.5rem 1.5rem;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    .watermark-bg {
+        width: 100vw;
+        opacity: 0.05;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="watermark-bg"></div>
+<div id="global-glitter"></div>
+
+<nav class="top-nav">
+    <a href="index.html" class="back-btn">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Powrót na stronę główną
+    </a>
+</nav>
+
+<section class="policy-section">
+    <div class="policy-container scroll-animate">
+        <h1>DANE FIRMY</h1>
+        
+        <p>
+            <strong>PK BEAUTY Patrycja Kazimierska</strong><br>
+            ul. Piastów 10<br>
+            66-600 Krosno Odrzańskie
+        </p>
+
+        <p>
+            NIP: 9261691597<br>
+            REGON: 526845670
+        </p>
+
+        <h2>Adres wykonywania działalności:</h2>
+        <p>
+            Metalowców 1<br>
+            66-600 Krosno Odrzańskie
+        </p>
+
+        <h2>Kontakt:</h2>
+        <p>
+            E-mail: (tu wpisz)<br>
+            Tel.: +48 793 241 202
+        </p>
+    </div>
+</section>
+
+<script>
+    const globalGlitter = document.getElementById('global-glitter');
+    const particleCount = 50;
+
+    for(let i = 0; i < particleCount; i++) {
+        let glitter = document.createElement('div');
+        glitter.classList.add('glitter');
+        glitter.style.left = Math.random() * 100 + 'vw';
+        glitter.style.top = Math.random() * 100 + 'vh';
+        glitter.style.animationDelay = Math.random() * 4 + 's';
+        glitter.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        
+        const scale = Math.random() * 0.5 + 0.5;
+        glitter.style.transform = `scale(${scale})`;
+        
+        globalGlitter.appendChild(glitter);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            document.querySelector('.scroll-animate').classList.add('scroll-triggered');
+        }, 100);
+    });
+</script>
+</body>
+</html>

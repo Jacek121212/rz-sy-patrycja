@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Szkolenia | Patrycja Kazimierska</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+    --color-white: #ffffff;
+    --color-bg: #faf9f7;
+    --color-text: #2a2a2a;
+    --color-gold: #D4AF37;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    overflow-x: hidden;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    padding-top: 80px;
+}
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 1000;
+}
+.nav-logo img {
+    height: 55px;
+    width: auto;
+    display: block;
+}
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 5px;
+    font-weight: 500;
+    transition: color 0.4s ease;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-gold);
+    transition: width 0.4s ease;
+}
+.nav-links a:hover {
+    color: var(--color-gold);
+}
+.nav-links a:hover::after {
+    width: 100%;
+}
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 1001;
+}
+.hamburger span {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-text);
+    transition: 0.4s ease-in-out;
+}
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+    background-image: url('szk.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.65);
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+}
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--color-text);
+    letter-spacing: 6px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+.hero-content p {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: #333;
+    letter-spacing: 2px;
+    font-style: italic;
+}
+.content-section {
+    padding: 4rem 5% 6rem;
+    background-color: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.return-link-wrapper {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.btn-return {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-text);
+    padding-bottom: 3px;
+    transition: color 0.4s ease, border-color 0.4s ease;
+}
+.btn-return:hover {
+    color: var(--color-gold);
+    border-color: var(--color-gold);
+}
+.intro-text {
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+.intro-text p {
+    font-size: 1.05rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+.trainings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    max-width: 1200px;
+    width: 100%;
+}
+.training-row {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+.training-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.training-card {
+    flex: 1;
+    background-color: var(--color-white);
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.training-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+}
+.training-image-wrapper {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.training-image-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+.training-video-trigger {
+    flex: 1;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    background: #000;
+}
+.training-video-trigger:hover {
+    transform: scale(1.02);
+}
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+.training-video-trigger:hover .video-thumbnail {
+    opacity: 0.6;
+}
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.training-video-trigger:hover .play-icon {
+    background: var(--color-gold);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+.play-icon::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 12px 0 12px 20px;
+    border-color: transparent transparent transparent var(--color-text);
+    margin-left: 5px;
+    transition: border-color 0.3s ease;
+}
+.training-video-trigger:hover .play-icon::after {
+    border-color: transparent transparent transparent var(--color-white);
+}
+
+.video-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+.video-lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.video-lightbox video {
+    max-width: 90vw;
+    max-height: 85vh;
+    outline: none;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+.close-video {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 3rem;
+    font-weight: 300;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: color 0.3s ease;
+}
+.close-video:hover {
+    color: var(--color-gold);
+}
+
+.contact-cta {
+    text-align: center;
+    padding: 0 5% 6rem;
+    background-color: var(--color-bg);
+}
+.contact-cta h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+}
+.contact-cta p {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+}
+.btn-gold {
+    display: inline-block;
+    padding: 16px 45px;
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+.btn-gold:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+}
+.footer {
+    padding: 4rem 5%;
+    background-color: var(--color-white);
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+.footer-links {
+    display: flex;
+    gap: 3rem;
+}
+.footer-links a {
+    text-decoration: none;
+    color: #555;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.4s ease;
+}
+.footer-links a:hover {
+    color: var(--color-gold);
+}
+.copyright {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 1rem;
+    letter-spacing: 1px;
+}
+.author-link {
+    font-size: 0.7rem;
+    color: #999;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.4s ease;
+}
+.author-link strong {
+    color: var(--color-gold);
+    font-weight: 500;
+}
+.author-link:hover strong {
+    color: var(--color-text);
+}
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+@media (max-width: 1024px) {
+    .training-row {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .training-row:nth-child(even) {
+        flex-direction: column;
+    }
+}
+@media (max-width: 768px) {
+    nav { height: 70px; }
+    body { padding-top: 70px; }
+    .hero { height: 45vh; }
+    .hamburger { display: flex; }
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        transition: right 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .nav-links.active { right: 0; }
+    .nav-links a { font-size: 1.1rem; }
+    .hamburger.active span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+    
+    .trainings-container { gap: 4rem; }
+    .training-image-wrapper { padding: 10px; }
+    .video-thumbnail { min-height: 250px; }
+    .close-video { top: 15px; right: 20px; font-size: 2.5rem; }
+    .video-lightbox video { max-width: 100vw; max-height: 90vh; }
+    
+    .contact-cta h2 { font-size: 1.8rem; }
+    .contact-cta p { font-size: 1rem; }
+    
+    .footer-links { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="Patrycja Kazimierska" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iNDAiPjx0ZXh0IHk9IjIwIiBmb250LWZhbWlseT0ic2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiNENEFGMzciPkxPR088L3RleHQ+PC9zdmc+'">
+    </a>
+    <div class="hamburger">
+        <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html#omnie">O mnie</a></li>
+        <li><a href="oferta.html">Oferta</a></li>
+        <li><a href="szkolenia.html">Szkolenia</a></li>
+        <li><a href="opinie.html">Opinie</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+</nav>
+
+<header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content scroll-fade">
+        <h1>PROFESJONALNE SZKOLENIA</h1>
+        <p>Rozpocznij swoją drogę w branży beauty</p>
+    </div>
+</header>
+
+<section class="content-section">
+    <div class="return-link-wrapper scroll-fade">
+        <a href="index.html" class="btn-return">Powrót na stronę główną</a>
+    </div>
+
+    <div class="intro-text scroll-fade">
+        <p>Chcesz podnieść swoje kwalifikacje lub dopiero zaczynasz swoją przygodę ze stylizacją rzęs i brwi? Zapoznaj się z ofertą moich autorskich szkoleń, podczas których zdobędziesz kompleksową wiedzę teoretyczną oraz praktyczną.</p>
+        <p>Ucz się od eksperta i dołącz do grona profesjonalistek w branży beauty.</p>
+    </div>
+
+    <div class="trainings-container">
+        
+        <div class="training-row scroll-fade">
+            <div class="training-card">
+                <div class="training-image-wrapper">
+                    <img src="szk1.jpg" alt="Informacje o szkoleniu 1">
+                </div>
+            </div>
+            <div class="training-video-trigger" onclick="openVideo('szk1.mp4')">
+                <video class="video-thumbnail" muted playsinline preload="metadata">
+                    <source src="szk1.mp4" type="video/mp4">
+                </video>
+                <div class="play-icon"></div>
+            </div>
+        </div>
+
+        <div class="training-row scroll-fade">
+            <div class="training-card">
+                <div class="training-image-wrapper">
+                    <img src="szk2.jpg" alt="Informacje o szkoleniu 2">
+                </div>
+            </div>
+            <div class="training-video-trigger" onclick="openVideo('szk2.mp4')">
+                <video class="video-thumbnail" muted playsinline preload="metadata">
+                    <source src="szk2.mp4" type="video/mp4">
+                </video>
+                <div class="play-icon"></div>
+            </div>
+        </div>
+
+        <div class="training-row scroll-fade">
+            <div class="training-card">
+                <div class="training-image-wrapper">
+                    <img src="szk3.jpg" alt="Informacje o szkoleniu 3">
+                </div>
+            </div>
+            <div class="training-video-trigger" onclick="openVideo('szk3.mp4')">
+                <video class="video-thumbnail" muted playsinline preload="metadata">
+                    <source src="szk3.mp4" type="video/mp4">
+                </video>
+                <div class="play-icon"></div>
+            </div>
+        </div>
+
+        <div class="training-row scroll-fade">
+            <div class="training-card">
+                <div class="training-image-wrapper">
+                    <img src="szk4.jpg" alt="Informacje o szkoleniu 4">
+                </div>
+            </div>
+            <div class="training-video-trigger" onclick="openVideo('szk4.mp4')">
+                <video class="video-thumbnail" muted playsinline preload="metadata">
+                    <source src="szk4.mp4" type="video/mp4">
+                </video>
+                <div class="play-icon"></div>
+            </div>
+        </div>
+
+        <div class="training-row scroll-fade">
+            <div class="training-card">
+                <div class="training-image-wrapper">
+                    <img src="szk5.jpg" alt="Informacje o szkoleniu 5">
+                </div>
+            </div>
+            <div class="training-video-trigger" onclick="openVideo('szk5.mp4')">
+                <video class="video-thumbnail" muted playsinline preload="metadata">
+                    <source src="szk5.mp4" type="video/mp4">
+                </video>
+                <div class="play-icon"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="contact-cta scroll-fade">
+    <h2>Gotowa na zmianę?</h2>
+    <p>Zarezerwuj swoje miejsce i zdobądź umiejętności na najwyższym poziomie.</p>
+    <a href="formularz.html" class="btn-gold">Zapisz się na szkolenie</a>
+</div>
+
+<div class="video-lightbox" id="videoLightbox">
+    <div class="close-video" onclick="closeVideo()">&times;</div>
+    <video id="lightboxVideo" controls playsinline>
+        <source src="" type="video/mp4">
+        Twoja przeglądarka nie obsługuje odtwarzacza wideo.
+    </video>
+</div>
+
+<footer class="footer">
+    <div class="footer-links scroll-fade">
+        <a href="df.html">Dane firmy</a>
+        <a href="pp.html">Polityka prywatności</a>
+    </div>
+    <div class="copyright scroll-fade">
+        &copy; 2026 Patrycja Kazimierska. Wszelkie prawa zastrzeżone.
+    </div>
+    <div class="scroll-fade">
+        <a href="https://str0nix.pl" class="author-link" target="_blank">Strona stworzona przez <strong>Str0nix.pl</strong></a>
+    </div>
+</footer>
+
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-links a');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    const lightbox = document.getElementById('videoLightbox');
+    const videoElement = document.getElementById('lightboxVideo');
+
+    function openVideo(src) {
+        videoElement.src = src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+            videoElement.play();
+        }, 300);
+    }
+
+    function closeVideo() {
+        videoElement.pause();
+        videoElement.currentTime = 0;
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+            videoElement.src = '';
+        }, 400); 
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const elementsToAnimate = document.querySelectorAll('.scroll-fade');
+        elementsToAnimate.forEach(el => observer.observe(el));
+    });
+</script>
+</body>
+</html>

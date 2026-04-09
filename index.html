@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Patrycja Kazimierska | Stylizacja Rzęs Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+    --color-white: #ffffff;
+    --color-bg: #faf9f7;
+    --color-text: #2a2a2a;
+    --color-gold: #D4AF37;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+#global-glitter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+.glitter {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px 2px var(--color-gold), 0 0 20px rgba(255,255,255,0.9);
+    opacity: 0;
+    animation: sparkle 4s infinite linear;
+}
+@keyframes sparkle {
+    0% { transform: translateY(0) scale(0); opacity: 0; }
+    50% { transform: translateY(-40px) scale(1.8); opacity: 0.9; }
+    100% { transform: translateY(-80px) scale(0); opacity: 0; }
+}
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 1000;
+}
+.nav-logo img {
+    height: 65px;
+    width: auto;
+    display: block;
+}
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    padding-bottom: 5px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-gold);
+    transition: width 0.3s ease;
+}
+.nav-links a:hover {
+    color: var(--color-gold);
+}
+.nav-links a:hover::after {
+    width: 100%;
+}
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001;
+}
+.hamburger span {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-text);
+    transition: 0.3s ease-in-out;
+}
+.hero {
+    position: relative;
+    min-height: 85vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('gl1.jpg');
+    background-repeat: no-repeat;
+    text-align: center;
+    background-color: #ffffff;
+}
+@media (min-width: 1025px) {
+    .hero {
+        background-size: contain;
+        background-position: center bottom;
+    }
+}
+@media (max-width: 1024px) {
+    .hero {
+        background-size: cover;
+        background-position: center top;
+        min-height: 100vh;
+    }
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    max-width: 1200px;
+}
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #111;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    background: linear-gradient(to right, #111 20%, var(--color-gold) 50%, #111 80%);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shine 4s linear infinite, scaleUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+    transform: scale(0.9);
+}
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    color: #222;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpFade 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.8s forwards;
+}
+@keyframes scaleUp {
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+@keyframes slideUpFade {
+    to { opacity: 1; transform: translateY(0); }
+}
+.about-section {
+    padding: 8rem 5%;
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.about-container {
+    display: flex;
+    max-width: 1200px;
+    gap: 4rem;
+    align-items: center;
+}
+.about-image {
+    flex: 1;
+    height: 550px;
+    background-image: url('omn.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+.about-content {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.about-content h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    margin-bottom: 1.5rem;
+}
+.about-content h3 {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    color: var(--color-text);
+    margin: 1.5rem 0 1rem;
+    font-weight: 600;
+}
+.about-content p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #444;
+}
+.btn-primary {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 12px 30px;
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+.tiles-section {
+    padding: 5rem 2% 8rem 2%;
+    background-color: var(--color-bg);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+.tiles-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+.tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    overflow: hidden;
+    background: transparent;
+}
+.tile-img-wrapper {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+.tile-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.tile-content {
+    padding: 25px 10px 10px 10px;
+    text-align: center;
+    transition: transform 0.4s ease;
+}
+.tile-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-text);
+    margin-bottom: 0;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color 0.4s ease;
+}
+.tile:hover .tile-img {
+    transform: scale(1.08);
+}
+.tile:hover .tile-title {
+    color: var(--color-gold);
+}
+.contact-section {
+    padding: 8rem 5%;
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    overflow: hidden;
+}
+.contact-container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    gap: 4rem;
+    align-items: center;
+}
+.contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+}
+.contact-info h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    color: var(--color-text);
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+.contact-item:hover {
+    transform: scale(1.05);
+}
+.contact-item a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.contact-item a:hover {
+    color: var(--color-gold);
+}
+.contact-map {
+    flex: 1;
+    width: 100%;
+}
+.contact-map iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.ig-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(220, 39, 67, 0.2);
+    width: fit-content;
+}
+.ig-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(220, 39, 67, 0.4);
+}
+.ig-button svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+.footer {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 5%;
+    background-color: #faf9f7;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+.footer-links {
+    display: flex;
+    gap: 3rem;
+}
+.footer-links a {
+    text-decoration: none;
+    color: #444;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: var(--color-gold);
+}
+.copyright {
+    font-size: 0.8rem;
+    color: #666;
+}
+.author-link {
+    font-size: 0.75rem;
+    color: #777;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+.author-link strong {
+    color: var(--color-gold);
+    font-weight: 500;
+}
+.author-link:hover strong {
+    color: #111;
+}
+@media (max-width: 1024px) {
+    .tiles-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .about-container {
+        flex-direction: column;
+    }
+    .about-image {
+        width: 100%;
+        height: 400px;
+    }
+    .contact-container {
+        flex-direction: column;
+    }
+}
+@media (max-width: 768px) {
+    nav { height: 80px; }
+    .hamburger { display: flex; }
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        transition: right 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .nav-links.active { right: 0; }
+    .nav-links a { font-size: 1.2rem; }
+    .hamburger.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
+    
+    .hero-title { font-size: 2.2rem; }
+    .hero-subtitle { font-size: 0.8rem; letter-spacing: 0.2em; }
+    
+    .about-section { padding: 5rem 5%; }
+    .contact-section { padding: 5rem 5%; }
+    
+    .tiles-section { padding: 4rem 5%; }
+    .tiles-container { grid-template-columns: 1fr; gap: 1rem; }
+    .tile { margin-bottom: 20px; }
+    .tile-img-wrapper { height: 350px; }
+    .footer-links { flex-direction: column; gap: 1rem; }
+}
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+    transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.scroll-animate-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.scroll-animate-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.scroll-triggered {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+.tiles-container .tile:nth-child(2) { transition-delay: 0.1s; }
+.tiles-container .tile:nth-child(3) { transition-delay: 0.2s; }
+</style>
+</head>
+<body>
+
+<div id="global-glitter"></div>
+
+<nav>
+    <a href="#" class="nav-logo">
+        <img src="logo.png" alt="Patrycja Kazimierska Logo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iNDAiPjx0ZXh0IHk9IjIwIiBmb250LWZhbWlseT0ic2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiNENEFGMzciPkxPR088L3RleHQ+PC9zdmc+'">
+    </a>
+    <div class="hamburger">
+        <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#omnie">O mnie</a></li>
+        <li><a href="oferta.html">Oferta</a></li>
+        <li><a href="szkolenia.html">Szkolenia</a></li>
+        <li><a href="opinie.html">Opinie</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+</nav>
+
+<section class="hero" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="hero-title scroll-animate">PATRYCJA KAZIMIERSKA</h1>
+        <p class="hero-subtitle scroll-animate" style="transition-delay: 0.2s;">Stylizacja rzęs premium</p>
+    </div>
+</section>
+
+<section id="omnie" class="about-section">
+    <div class="about-container">
+        <div class="about-image scroll-animate-left"></div>
+        <div class="about-content scroll-animate-right">
+            <h2>O mnie</h2>
+            <p>Cześć! 😊 Nazywam się Patrycja Kazimierska i jestem profesjonalną stylistką rzęs oraz specjalistką w zakresie laminacji brwi. Łączę precyzję, estetykę i indywidualne podejście do każdej klientki, tak aby podkreślić naturalne piękno i stworzyć efekt dopasowany do Twoich rysów twarzy, stylu oraz oczekiwań.</p>
+            <p>Każdą stylizację wykonuję z najwyższą dbałością o detale, bezpieczeństwo i komfort, dzięki czemu możesz liczyć na trwały, estetyczny i elegancki efekt. Pracuję na wysokiej jakości produktach i stosuję najnowsze techniki w branży beauty.</p>
+            
+            <h3>💎 STYLIZACJA RZĘS I LAMINACJA BRWI</h3>
+            <p>Specjalizuję się w profesjonalnej stylizacji rzęs oraz laminacji brwi. Każda aplikacja jest w pełni dopasowana do oka i brwi — od subtelnych, naturalnych efektów po wyraziste objętości.</p>
+            <p>Laminacja brwi to idealne rozwiązanie dla osób, które cenią naturalny, zadbany wygląd bez konieczności codziennego makijażu. Zabieg podkreśla kształt, nadaje objętości i wydobywa wyrazistość spojrzenia.</p>
+            
+            <p style="margin-top: 1.5rem; font-weight: 500;">Chcesz rozpocząć swoją przygodę w branży beauty lub podnieść swoje umiejętności?<br>Postaw na profesjonalne szkolenie i ucz się od praktyka!</p>
+            <a href="szkolenia.html" class="btn-primary">👉 Sprawdź dostępne szkolenia</a>
+        </div>
+    </div>
+</section>
+
+<section class="tiles-section">
+    <div class="tiles-container">
+        <a href="oferta.html" class="tile scroll-animate">
+            <div class="tile-img-wrapper">
+                <div class="tile-img" style="background-image: url('ofe.jpg');"></div>
+            </div>
+            <div class="tile-content">
+                <h2 class="tile-title">Zabiegi premium</h2>
+            </div>
+        </a>
+        <a href="szkolenia.html" class="tile scroll-animate">
+            <div class="tile-img-wrapper">
+                <div class="tile-img" style="background-image: url('szk.jpg');"></div>
+            </div>
+            <div class="tile-content">
+                <h2 class="tile-title">Profesjonalne kursy</h2>
+            </div>
+        </a>
+        <a href="opinie.html" class="tile scroll-animate">
+            <div class="tile-img-wrapper">
+                <div class="tile-img" style="background-image: url('opi.jpg');"></div>
+            </div>
+            <div class="tile-content">
+                <h2 class="tile-title">Zaufanie klientek</h2>
+            </div>
+        </a>
+    </div>
+</section>
+
+<section id="kontakt" class="contact-section">
+    <div class="contact-container">
+        <div class="contact-info scroll-animate-left">
+            <h2>Kontakt</h2>
+            
+            <a href="https://www.instagram.com/patrycja.beautyy/" target="_blank" class="ig-button">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+                patrycja.beautyy
+            </a>
+
+            <div class="contact-item">
+                <strong style="color: var(--color-gold);">Telefon:</strong> 
+                <a href="tel:+48793241202">+48 793 241 202</a>
+            </div>
+            
+            <div class="contact-item">
+                <strong style="color: #25D366;">WhatsApp:</strong> 
+                <a href="https://wa.me/48793241202" target="_blank">+48 793 241 202</a>
+            </div>
+        </div>
+        
+        <div class="contact-map scroll-animate-right">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d515.7428135290893!2d15.105871862418173!3d52.05605920704725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470637c943f7593b%3A0x46f9af5b69ee5633!2sPiast%C3%B3w%2010J%2C%2066-600%20Krosno%20Odrza%C5%84skie!5e0!3m2!1spl!2spl!4v1775732314010!5m2!1spl!2spl" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-links scroll-animate">
+        <a href="df.html">Dane firmy</a>
+        <a href="pp.html">Polityka prywatności</a>
+    </div>
+    <div class="copyright scroll-animate">
+        &copy; 2026 Patrycja Kazimierska. Wszelkie prawa zastrzeżone.
+    </div>
+    <div class="scroll-animate">
+        <a href="https://str0nix.pl" class="author-link" target="_blank">Strona stworzona przez <strong>Str0nix.pl</strong></a>
+    </div>
+</footer>
+
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-links a');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    const globalGlitter = document.getElementById('global-glitter');
+    const particleCount = 150;
+
+    for(let i = 0; i < particleCount; i++) {
+        let glitter = document.createElement('div');
+        glitter.classList.add('glitter');
+        glitter.style.left = Math.random() * 100 + 'vw';
+        glitter.style.top = Math.random() * 100 + 'vh';
+        glitter.style.animationDelay = Math.random() * 4 + 's';
+        glitter.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        
+        const scale = Math.random() * 0.5 + 0.5;
+        glitter.style.transform = `scale(${scale})`;
+        
+        globalGlitter.appendChild(glitter);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('scroll-triggered');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const elementsToAnimate = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right');
+        elementsToAnimate.forEach(el => observer.observe(el));
+    });
+</script>
+</body>
+</html>
