@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Patrycja Kazimierska | Stylizacja Rzęs Premium</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
     --color-white: #ffffff;
     --color-bg: #faf9f7;
-    --color-text: #2a2a2a;
+    --color-text: #1a1a1a;
     --color-gold: #D4AF37;
-    --font-heading: 'Playfair Display', serif;
+    --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Montserrat', sans-serif;
 }
 * {
@@ -27,7 +27,7 @@ body {
     color: var(--color-text);
     background-color: var(--color-bg);
     overflow-x: hidden;
-    line-height: 1.6;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
 }
 #global-glitter {
@@ -61,32 +61,27 @@ nav {
     left: 0;
     width: 100%;
     height: 90px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0 5%;
     z-index: 1000;
 }
-.nav-logo img {
-    height: 65px;
-    width: auto;
-    display: block;
-}
 .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 3rem;
     list-style: none;
 }
 .nav-links a {
     text-decoration: none;
     color: var(--color-text);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     position: relative;
     padding-bottom: 5px;
     font-weight: 500;
@@ -112,10 +107,12 @@ nav {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 28px;
-    height: 20px;
+    width: 30px;
+    height: 18px;
     cursor: pointer;
     z-index: 1001;
+    position: absolute;
+    right: 5%;
 }
 .hamburger span {
     display: block;
@@ -171,8 +168,8 @@ nav {
 .hero-title {
     font-family: var(--font-heading);
     font-size: clamp(2.5rem, 6vw, 5.5rem);
-    font-weight: 600;
-    letter-spacing: 0.1em;
+    font-weight: 500;
+    letter-spacing: 0.15em;
     color: #111;
     margin-bottom: 1rem;
     line-height: 1.1;
@@ -187,11 +184,11 @@ nav {
 }
 .hero-subtitle {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
-    letter-spacing: 0.4em;
+    letter-spacing: 0.35em;
     color: #222;
-    font-weight: 600;
+    font-weight: 500;
     opacity: 0;
     transform: translateY(20px);
     animation: slideUpFade 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.8s forwards;
@@ -216,17 +213,17 @@ nav {
 .about-container {
     display: flex;
     max-width: 1200px;
-    gap: 4rem;
+    gap: 5rem;
     align-items: center;
 }
 .about-image {
     flex: 1;
-    height: 550px;
+    height: 600px;
     background-image: url('omn.jpg');
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
 }
 .about-content {
     flex: 1;
@@ -237,42 +234,48 @@ nav {
 }
 .about-content h2 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--color-gold);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    font-weight: 500;
 }
 .about-content h3 {
     font-family: var(--font-body);
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--color-text);
-    margin: 1.5rem 0 1rem;
+    margin: 2.5rem 0 1.5rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 .about-content p {
-    margin-bottom: 1rem;
-    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
     color: #444;
+    font-weight: 300;
 }
 .btn-primary {
     display: inline-block;
-    margin-top: 1.5rem;
-    padding: 12px 30px;
+    margin-top: 2rem;
+    padding: 16px 35px;
     background-color: var(--color-gold);
     color: var(--color-white);
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     border-radius: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
 }
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(212, 175, 55, 0.35);
 }
 .tiles-section {
-    padding: 5rem 2% 8rem 2%;
+    padding: 6rem 5% 8rem;
     background-color: var(--color-bg);
     display: flex;
     justify-content: center;
@@ -282,7 +285,7 @@ nav {
 .tiles-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 3rem;
     width: 100%;
     max-width: 1200px;
 }
@@ -296,31 +299,32 @@ nav {
 }
 .tile-img-wrapper {
     width: 100%;
-    height: 450px;
+    height: 480px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 6px;
 }
 .tile-img {
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
-    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .tile-content {
-    padding: 25px 10px 10px 10px;
+    padding: 30px 10px 10px 10px;
     text-align: center;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
 }
 .tile-title {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--color-text);
     margin-bottom: 0;
     font-weight: 500;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     transition: color 0.4s ease;
 }
 .tile:hover .tile-img {
@@ -334,29 +338,31 @@ nav {
     background-color: var(--color-white);
     display: flex;
     justify-content: center;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
     overflow: hidden;
 }
 .contact-container {
     display: flex;
     max-width: 1200px;
     width: 100%;
-    gap: 4rem;
+    gap: 5rem;
     align-items: center;
 }
 .contact-info {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.8rem;
     align-items: center;
     text-align: center;
 }
 .contact-info h2 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--color-gold);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: 500;
 }
 .social-buttons {
     display: flex;
@@ -365,64 +371,50 @@ nav {
     flex-wrap: wrap;
     width: 100%;
 }
-.ig-button {
+.ig-button, .fb-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 12px 28px;
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    gap: 10px;
+    padding: 14px 32px;
     color: var(--color-white);
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
     border-radius: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(220, 39, 67, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.ig-button {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    box-shadow: 0 5px 20px rgba(220, 39, 67, 0.2);
 }
 .ig-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(220, 39, 67, 0.4);
-}
-.ig-button svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(220, 39, 67, 0.4);
 }
 .fb-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 28px;
     background: #1877F2;
-    color: var(--color-white);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    border-radius: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(24, 119, 242, 0.2);
+    box-shadow: 0 5px 20px rgba(24, 119, 242, 0.2);
 }
 .fb-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(24, 119, 242, 0.4);
 }
-.fb-button svg {
-    width: 20px;
-    height: 20px;
+.ig-button svg, .fb-button svg {
+    width: 18px;
+    height: 18px;
     fill: currentColor;
 }
 .contact-item {
     display: flex;
     align-items: center;
     gap: 15px;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--color-text);
-    font-weight: 500;
-    transition: transform 0.3s ease;
+    font-weight: 400;
+    transition: transform 0.4s ease;
     word-break: break-word;
 }
 .contact-item:hover {
@@ -431,7 +423,7 @@ nav {
 .contact-item a {
     color: inherit;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.4s ease;
 }
 .contact-item a:hover {
     color: var(--color-gold);
@@ -442,50 +434,56 @@ nav {
 }
 .contact-map iframe {
     width: 100%;
-    height: 400px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    height: 450px;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
 .footer {
     position: relative;
     z-index: 2;
-    padding: 3rem 5%;
+    padding: 4rem 5%;
     background-color: #faf9f7;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.8rem;
 }
 .footer-links {
     display: flex;
-    gap: 3rem;
+    gap: 3.5rem;
 }
 .footer-links a {
     text-decoration: none;
-    color: #444;
-    font-size: 0.8rem;
+    color: #555;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    transition: color 0.3s ease;
+    letter-spacing: 2px;
+    transition: color 0.4s ease;
+    font-weight: 500;
 }
 .footer-links a:hover {
     color: var(--color-gold);
 }
-.author-link {
+.copyright {
     font-size: 0.75rem;
-    color: #777;
-    text-decoration: none;
+    color: #888;
     letter-spacing: 1px;
-    transition: color 0.3s ease;
+}
+.author-link {
+    font-size: 0.7rem;
+    color: #999;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    transition: color 0.4s ease;
 }
 .author-link strong {
     color: var(--color-gold);
     font-weight: 500;
 }
 .author-link:hover strong {
-    color: #111;
+    color: var(--color-text);
 }
 @media (max-width: 1024px) {
     .tiles-container {
@@ -496,14 +494,14 @@ nav {
     }
     .about-image {
         width: 100%;
-        height: 400px;
+        height: 450px;
     }
     .contact-container {
         flex-direction: column;
     }
 }
 @media (max-width: 768px) {
-    nav { height: 80px; }
+    nav { justify-content: space-between; height: 80px; }
     .hamburger { display: flex; }
     .nav-links {
         position: fixed;
@@ -515,26 +513,27 @@ nav {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 3rem;
-        transition: right 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        gap: 3.5rem;
+        transition: right 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     .nav-links.active { right: 0; }
-    .nav-links a { font-size: 1.2rem; }
-    .hamburger.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
+    .nav-links a { font-size: 1.15rem; }
+    .hamburger.active span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
+    .hamburger.active span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
     
     .hero-title { font-size: 2.2rem; }
-    .hero-subtitle { font-size: 0.8rem; letter-spacing: 0.2em; }
+    .hero-subtitle { font-size: 0.75rem; letter-spacing: 0.25em; }
     
     .about-section { padding: 5rem 5%; }
     .contact-section { padding: 5rem 5%; }
+    .about-content h2 { font-size: 2.4rem; }
     
     .tiles-section { padding: 4rem 5%; }
-    .tiles-container { grid-template-columns: 1fr; gap: 1rem; }
-    .tile { margin-bottom: 20px; }
-    .tile-img-wrapper { height: 350px; }
-    .footer-links { flex-direction: column; gap: 1rem; }
+    .tiles-container { grid-template-columns: 1fr; gap: 2.5rem; }
+    .tile-img-wrapper { height: 400px; }
+    
+    .footer-links { flex-direction: column; gap: 1.5rem; }
     .social-buttons { flex-direction: column; align-items: center; }
     .contact-item { font-size: 1rem; flex-direction: column; gap: 5px; }
 }
@@ -557,8 +556,8 @@ nav {
     opacity: 1;
     transform: translate(0, 0) scale(1);
 }
-.tiles-container .tile:nth-child(2) { transition-delay: 0.1s; }
-.tiles-container .tile:nth-child(3) { transition-delay: 0.2s; }
+.tiles-container .tile:nth-child(2) { transition-delay: 0.15s; }
+.tiles-container .tile:nth-child(3) { transition-delay: 0.3s; }
 </style>
 </head>
 <body>
@@ -566,15 +565,12 @@ nav {
 <div id="global-glitter"></div>
 
 <nav>
-    <a href="#" class="nav-logo">
-        <img src="logo.png" alt="Patrycja Kazimierska Logo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iNDAiPjx0ZXh0IHk9IjIwIiBmb250LWZhbWlseT0ic2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiNENEFGMzciPkxPR088L3RleHQ+PC9zdmc+'">
-    </a>
     <div class="hamburger">
         <span></span><span></span><span></span>
     </div>
     <ul class="nav-links">
         <li><a href="#omnie">O mnie</a></li>
-        <li><a href="oferta.html">Oferta</a></li>
+        <li><a href="formularz.html">Formularz</a></li>
         <li><a href="szkolenia.html">Szkolenia</a></li>
         <li><a href="opinie.html">Opinie</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
@@ -585,7 +581,7 @@ nav {
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1 class="hero-title scroll-animate">PATRYCJA KAZIMIERSKA</h1>
-        <p class="hero-subtitle scroll-animate" style="transition-delay: 0.2s;">Stylizacja rzęs premium</p>
+        <p class="hero-subtitle scroll-animate" style="transition-delay: 0.2s;">SZKOLENIA STYLIZACJA RZĘS I BRWI</p>
     </div>
 </section>
 
@@ -594,22 +590,23 @@ nav {
         <div class="about-image scroll-animate-left"></div>
         <div class="about-content scroll-animate-right">
             <h2>O mnie</h2>
-            <p>Cześć! 😊 Nazywam się Patrycja Kazimierska i jestem profesjonalną stylistką rzęs oraz specjalistką w zakresie laminacji brwi. Łączę precyzję, estetykę i indywidualne podejście do każdej klientki, tak aby podkreślić naturalne piękno i stworzyć efekt dopasowany do Twoich rysów twarzy, stylu oraz oczekiwań.</p>
-            <p>Każdą stylizację wykonuję z najwyższą dbałością o detale, bezpieczeństwo i komfort, dzięki czemu możesz liczyć na trwały, estetyczny i elegancki efekt. Pracuję na wysokiej jakości produktach i stosuję najnowsze techniki w branży beauty.</p>
+            <p>Nazywam się Patrycja Kazimierska jestem instruktorem oraz stylistką rzęs i specjalistką stylizacji laminacji brwi.</p>
+            <p>Od 4 lat rozwijam się w stylizacji rzęs, a od 2 lat również w stylizacji brwi, nieustannie poszerzając swoją wiedzę i doświadczenie, aby dziś móc dzielić się nimi z innymi podczas szkoleń.</p>
+            <p>Niezależnie od poziomu, na którym jesteś pokażę Ci, jak pracować profesjonalnie, pewnie i z efektami!</p>
             
-            <h3>💎 STYLIZACJA RZĘS I LAMINACJA BRWI</h3>
+            <h3>STYLIZACJA RZĘS I LAMINACJA BRWI</h3>
             <p>Specjalizuję się w profesjonalnej stylizacji rzęs oraz laminacji brwi. Każda aplikacja jest w pełni dopasowana do oka i brwi — od subtelnych, naturalnych efektów po wyraziste objętości.</p>
             <p>Laminacja brwi to idealne rozwiązanie dla osób, które cenią naturalny, zadbany wygląd bez konieczności codziennego makijażu. Zabieg podkreśla kształt, nadaje objętości i wydobywa wyrazistość spojrzenia.</p>
             
-            <p style="margin-top: 1.5rem; font-weight: 500;">Chcesz rozpocząć swoją przygodę w branży beauty lub podnieść swoje umiejętności?<br>Postaw na profesjonalne szkolenie i ucz się od praktyka!</p>
-            <a href="szkolenia.html" class="btn-primary">👉 Sprawdź dostępne szkolenia</a>
+            <p style="margin-top: 2rem; font-weight: 500;">Chcesz rozpocząć swoją przygodę w branży beauty lub podnieść swoje umiejętności?<br>Postaw na profesjonalne szkolenie i ucz się od praktyka!</p>
+            <a href="formularz.html" class="btn-primary">WYPEŁNIJ FORMULARZ ZGŁOSZENIOWY</a>
         </div>
     </div>
 </section>
 
 <section class="tiles-section">
     <div class="tiles-container">
-        <a href="oferta.html" class="tile scroll-animate">
+        <a href="https://www.instagram.com/patrycja.beautyy/" target="_blank" class="tile scroll-animate">
             <div class="tile-img-wrapper">
                 <div class="tile-img" style="background-image: url('ofe.jpg');"></div>
             </div>
@@ -656,7 +653,7 @@ nav {
                 </a>
             </div>
 
-            <div class="contact-item" style="margin-top: 1rem;">
+            <div class="contact-item" style="margin-top: 1.5rem;">
                 <strong style="color: var(--color-gold);">Telefon:</strong> 
                 <a href="tel:+48793241202">+48 793 241 202</a>
             </div>
@@ -671,8 +668,8 @@ nav {
                 <a href="mailto:pat.kazimierska2002@gmail.com">pat.kazimierska2002@gmail.com</a>
             </div>
 
-            <div style="margin-top: 1.5rem;">
-                <a href="formularz.html" class="btn-primary">Skontaktuj się przez Formularz</a>
+            <div style="margin-top: 2rem;">
+                <a href="formularz.html" class="btn-primary">SKONTAKTUJ SIĘ PRZEZ FORMULARZ</a>
             </div>
         </div>
         
